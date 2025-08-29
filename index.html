@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KwikSell — Sell Your Old Phone for Instant Offer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2a4 4 0 0 1 4 4v2h2a4 4 0 0 1 0 8h-2v2a4 4 0 1 1-8 0v-2H6a4 4 0 0 1 0-8h2V6a4 4 0 0 1 4-4z" />
+        </svg>
+        <span>KwikSell</span>
+      </div>
+      <nav class="nav">
+        <a href="#how-it-works">How it works</a>
+        <a href="#brands">Brands</a>
+        <a href="#sell">Sell now</a>
+        <button id="cartBtn" class="btn btn-ghost">
+          <span class="badge" id="cartCount">0</span>
+          Cart
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Sell your old phone in minutes</h1>
+          <p>Get an instant quote, free doorstep pickup, and fast payouts. No haggling, zero stress.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#sell">Get instant quote</a>
+            <button class="btn btn-ghost" id="detectDeviceBtn">Detect my device</button>
+          </div>
+          <div id="detectResult" class="detect-result" aria-live="polite"></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="phone-card tilt">
+            <div class="notch"></div>
+            <div class="screen-shine"></div>
+            <div class="stars"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="how-it-works section">
+      <div class="container">
+        <h2>How it works</h2>
+        <div class="grid3">
+          <div class="card step">
+            <div class="step-num">1</div>
+            <h3>Choose model</h3>
+            <p>Pick your brand and model or let us auto-detect it.</p>
+          </div>
+          <div class="card step">
+            <div class="step-num">2</div>
+            <h3>Answer a few checks</h3>
+            <p>Tell us the condition. We’ll calculate the best price instantly.</p>
+          </div>
+          <div class="card step">
+            <div class="step-num">3</div>
+            <h3>Pickup & payout</h3>
+            <p>We schedule a free pickup and pay you on the spot.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRANDS -->
+    <section id="brands" class="section brands">
+      <div class="container">
+        <h2>Popular brands</h2>
+        <div id="brandList" class="brand-list"></div>
+      </div>
+    </section>
+
+    <!-- SELL WIZARD -->
+    <section id="sell" class="section sell">
+      <div class="container">
+        <h2>Get your instant offer</h2>
+
+        <div class="wizard card">
+          <!-- Step 1: Brand & Model -->
+          <div class="wizard-step" data-step="1">
+            <div class="grid2">
+              <div>
+                <label for="brandSelect">Brand</label>
+                <select id="brandSelect"></select>
+              </div>
+              <div>
+                <label for="modelSelect">Model</label>
+                <select id="modelSelect"></select>
+              </div>
+            </div>
+            <div class="mt-3">
+              <label for="searchInput">Search models</label>
+              <input id="searchInput" type="search" placeholder="e.g., iPhone 12, Galaxy S21" />
+            </div>
+            <div id="modelCards" class="model-cards mt-3"></div>
+            <div class="wizard-actions">
+              <button class="btn btn-primary" id="toStep2">Next</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Condition -->
+          <div class="wizard-step hidden" data-step="2">
+            <h3>Condition</h3>
+            <div class="grid3">
+              <label class="radio-card">
+                <input type="radio" name="condition" value="excellent" checked />
+                <div>
+                  <strong>Excellent</strong>
+                  <p>Like new, no visible wear</p>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="condition" value="good" />
+                <div>
+                  <strong>Good</strong>
+                  <p>Light scratches, fully functional</p>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="condition" value="fair" />
+                <div>
+                  <strong>Fair</strong>
+                  <p>Heavy wear or minor faults</p>
+                </div>
+              </label>
+            </div>
+
+            <details class="mt-3">
+              <summary>Add issues (optional)</summary>
+              <div class="checkboxes">
+                <label><input type="checkbox" value="screenCrack" /> Screen cracked</label>
+                <label><input type="checkbox" value="batteryPoor" /> Battery health under 80%</label>
+                <label><input type="checkbox" value="cameraFault" /> Camera not working</label>
+                <label><input type="checkbox" value="waterDamage" /> Water damage</label>
+                 <label><input type="checkbox" value="power Button" /> Power Button works normally</label>
+                <label><input type="checkbox" value="Charging Cable" /> Original charging cable (type-c / lightning)?</label>
+                
+              </div>
+            </details>
+
+            <div class="wizard-actions">
+              <button class="btn btn-ghost" id="backTo1">Back</button>
+              <button class="btn btn-primary" id="calcPriceBtn">Calculate price</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Offer -->
+          <div class="wizard-step hidden" data-step="3">
+            <div id="offerBox" class="offer-box">
+              <div>
+                <h3>Your offer</h3>
+                <p id="offerTitle" class="muted"></p>
+              </div>
+              <div class="offer-amount">
+                ₹ <span id="offerAmount">—</span>
+              </div>
+            </div>
+
+            <div class="wizard-actions">
+              <button class="btn btn-ghost" id="backTo2">Back</button>
+              <button class="btn btn-primary" id="addToCartBtn">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> kwicksell</p>
+      <div class="links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <aside id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <strong>Your Cart</strong>
+      <button id="closeCart" class="icon-btn" aria-label="Close cart">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: ₹ <span id="cartTotal">0</span></div>
+      <button id="checkoutBtn" class="btn btn-primary btn-block">Proceed to pickup</button>
+    </div>
+  </aside>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkoutModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="checkoutTitle">Schedule Pickup</h3>
+        <button class="icon-btn" id="closeModal" aria-label="Close">×</button>
+      </div>
+      <form id="checkoutForm" class="modal-body">
+        <label>Full name
+          <input type="text" name="name" placeholder="Your name" required />
+        </label>
+        <label>Phone
+          <input type="tel" name="phone" placeholder="+91" required />
+        </label>
+        <label>Address
+          <textarea name="address" rows="3" required></textarea>
+        </label>
+        <label>Pickup date
+          <input type="date" name="date" required />
+        </label>
+        <button class="btn btn-primary btn-block" type="submit">Confirm pickup</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- PAYMENT MODAL -->
+<div id="paymentModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 id="paymentTitle">Choose Payment</h3>
+      <button class="icon-btn" id="closePayment" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <p>Please choose your payment method:</p>
+      <label class="radio-card">
+        <input type="radio" name="payment" value="cod" checked />
+        <strong>Cash on Delivery</strong>
+      </label>
+      <div class="wizard-actions mt-3">
+        <button id="confirmPaymentBtn" class="btn btn-primary btn-block">Confirm Payment</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>
