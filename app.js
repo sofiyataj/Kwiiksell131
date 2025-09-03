@@ -22,12 +22,104 @@ let cart = [];
 // Data (sample pricing)
 // ==============================
 const data = {
-  Apple: { "iPhone 12": 25000, "iPhone 13": 40000, "iPhone 11 Pro Max": 33900 },
-  Samsung: { "Galaxy S21": 22000, "Galaxy S22": 35000, "Galaxy M31": 20041 },
-  OnePlus: { "OnePlus 9": 20000, "OnePlus 10": 32000 },
-  Motorola: { "Moto G8": 10000, "Moto G45": 20000 },
-  Oppo: { "Oppo A52": 22000, "Oppo F27 Pro": 18500 },
-  Vivo: { "Vivo V11 Pro": 20000, "Vivo V9 Pro": 32000, "Vivo V15": 26990 },
+  Apple: { "iPhone 12": 25000, "iPhone 13": 40000, "iPhone 11 Pro Max": 33900,"iPhone 17 Pro Max": 125000, "iPhone 17 Pro": 115000,"iPhone 17": 105000,
+  "iPhone 16 Pro Max": 115000,"iPhone 16 Pro": 100000,
+  "iPhone 16": 90000,"iPhone 15 Pro Max": 95000,"iPhone 15 Pro": 85000,"iPhone 15": 75000,
+  "iPhone 14 Pro": 65000 },
+  Samsung: { "Galaxy S21": 22000, "Galaxy S22": 35000, "Galaxy M31": 20041 ,"Galaxy S25 Ultra": 110000,
+  "Galaxy S25+": 95000,"Galaxy S25": 85000,
+  "Galaxy S24 Ultra": 100000,"Galaxy S24+": 90000,
+  "Galaxy S24": 80000,"Galaxy Z Fold 6": 140000,
+  "Galaxy Z Flip 6": 100000,"Galaxy A55": 35000,
+  "Galaxy M55": 28000},
+  OnePlus: { "OnePlus 9": 20000, "OnePlus 12R": 50000,
+  "OnePlus 12": 65000, "OnePlus 11R": 42000,
+  "OnePlus 11": 55000,"OnePlus 10 Pro": 48000,
+  "OnePlus 10R": 40000,"OnePlus 9 Pro": 35000,
+  "OnePlus 9R": 28000, "OnePlus Nord 3": 30000,
+  "OnePlus Nord CE 3": 25000 },
+  Motorola: { "Moto G8": 10000, "Moto G45": 20000 ,"Motorola Edge 50 Ultra": 70000,
+  "Motorola Edge 50 Pro": 55000, "Motorola Edge 50": 40000, "Moto G100": 35000,"Moto G85": 28000,
+  "Moto G73": 22000,"Moto G62": 18000,"Moto G54": 15000,
+  "Moto E40": 12000,"Moto E13": 8000},
+  Oppo: { "Oppo A52": 22000, "Oppo F27 Pro": 18500 ,"Oppo Find X7 Ultra": 95000,"Oppo Find X7": 80000,
+  "Oppo Find N3 Flip": 90000,"Oppo Reno 11 Pro": 55000,
+  "Oppo Reno 11": 45000,"Oppo Reno 10 Pro+": 50000,
+  "Oppo Reno 10": 35000,"Oppo A98": 30000,
+  "Oppo A78": 22000,"Oppo A58": 18000},
+  Vivo: { "Vivo V11 Pro": 20000, "Vivo V9 Pro": 32000, "Vivo V15": 26990,"Vivo X100 Ultra": 95000,
+  "Vivo X100 Pro": 85000,"Vivo X100": 75000,
+  "Vivo X90 Pro+": 70000,"Vivo V30 Pro": 45000,
+  "Vivo V30": 38000,"Vivo V29 Pro": 35000,
+    "Vivo V29": 30000,
+    "Vivo Y200": 22000,
+    "Vivo Y100": 18000 },
+};
+// ==============================
+// Issue Label Mapping
+// ==============================
+const issueLabels = {
+  touch: "Touch not responsive",
+  cracks: "Cracks / scratches on glass",
+  clarity: "Display clarity issues",
+  brightness: "Brightness & color issues",
+  burnin: "Screen burn-in",
+  lifted: "Screen lifted",
+  ambient: "Ambient sensor faulty",
+  dents: "Dents or bends",
+  scratches: "Deep scratches",
+  corners: "Corners chipped",
+  gaps: "Loose frame",
+  backpanel: "Back panel cracked",
+  power: "Power button faulty",
+  volume: "Volume buttons faulty",
+  mute: "Mute switch faulty",
+  charging: "Charging port issue",
+  headphone: "Headphone jack faulty",
+  simtray: "SIM tray damaged",
+  loudspeaker: "Loudspeaker faulty",
+  earpiece: "Earpiece faulty",
+  mic: "Mic faulty",
+  distortion: "Distortion / crackling",
+  focus: "Camera focus issue",
+  lens: "Lens cracked / dusty",
+  flash: "Flash not working",
+  wifi: "Wi-Fi faulty",
+  bt: "Bluetooth faulty",
+  fingerprint: "Fingerprint / Face ID faulty",
+  proximity: "Proximity sensor faulty",
+  gyro: "Gyroscope faulty",
+  chargingok: "Charging issue",
+  noheat: "Overheating",
+  batteryhealth: "Poor battery health",
+  poweronoff: "Power on/off issue",
+  notlocked: "Apple/Google lock",
+  reset: "Factory reset not done",
+  imeiok: "Blacklisted IMEI",
+  box: "No original box",
+  charger: "No charger",
+  cable: "No cable",
+  headphones: "No headphones",
+  simtool: "No SIM ejector",
+  case: "No case",
+  protector: "No screen protector",
+  thirdparty: "Only third-party accessories",
+  imeimatch: "Box IMEI mismatch",
+  receipt: "No purchase receipt",
+  purchasedate: "Purchase date unclear",
+  underwarranty: "Out of warranty",
+  extended: "No extended warranty",
+  warrantycheck: "Warranty not verified",
+  accountmatch: "Account mismatch",
+  restrictions: "Carrier lock",
+  invoice: "No invoice",
+  imei: "IMEI not verified",
+  warrantystatus: "No warranty",
+  applecare: "No AppleCare",
+  activationdate: "Activation date unknown",
+  age: "Device too old (5+ yrs)",
+  brandcheck: "No brand verification",
+  builddate: "Manufacturing date unclear"
 };
 
 // ==============================
@@ -154,36 +246,57 @@ function setupWizard() {
 }
 
 // ==============================
-// Offer Calculation
+// Offer Calculation (with depreciation)
 // ==============================
 function calculateOffer() {
   // condition
   const checked = qs('input[name="condition"]:checked');
   state.condition = checked ? checked.value : "excellent";
 
-  // issues
-  state.issues = Array.from(qsa('details input[type="checkbox"]:checked')).map(c => c.value);
-
+  // base price for selected model
   let base = data[state.selectedBrand][state.selectedModel];
+
+  // Adjust base by condition %
   if (state.condition === "good") base *= 0.8;
   if (state.condition === "fair") base *= 0.6;
-  if (state.issues.length) base *= 0.85;
 
-  state.offer = Math.round(base);
+  // Depreciation from checklist
+  let deductions = 0;
+  const selectedIssues = [];
+  qsa('.diagnostic-checklist input[type="checkbox"]:checked').forEach(cb => {
+    const value = cb.value;
+    const deduction = parseInt(cb.dataset.deduction || "0", 10);
+    deductions += deduction;
+    selectedIssues.push(value);
+  });
 
+  // Save issues
+  state.issues = selectedIssues;
+
+  // Apply deductions
+  let finalPrice = base - deductions;
+
+  // Minimum guaranteed offer
+  if (finalPrice < 500) finalPrice = 500;
+
+  // Save and update state
+  state.offer = Math.round(finalPrice);
+
+  // Update UI
   qs("#offerTitle").textContent = `${state.selectedBrand} ${state.selectedModel} (${capitalize(state.condition)})`;
   qs("#offerAmount").textContent = state.offer.toString();
 
+  // Switch steps
   qs('[data-step="2"]').classList.add("hidden");
   qs('[data-step="3"]').classList.remove("hidden");
-
-  // ensure the CTA is in view
-  qs('[data-step="3"]').scrollIntoView({ behavior: "smooth", block: "center" });
 
   // ensure button label is default
   const addToCartBtn = qs("#addToCartBtn");
   addToCartBtn.textContent = "Add to cart";
   delete addToCartBtn.dataset.mode;
+
+  // Scroll into view
+  qs('[data-step="3"]').scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 // ==============================
@@ -199,15 +312,14 @@ function addToCart() {
     qs('[data-step="3"]').classList.add("hidden");
     qs('[data-step="1"]').classList.remove("hidden");
 
-    // Reset selections for clarity
+    // Reset selections
     qs("#brandSelect").value = "";
     qs("#modelSelect").innerHTML = `<option value="">Select model</option>`;
     state = { selectedBrand: null, selectedModel: null, condition: "excellent", issues: [], offer: 0 };
 
-    // Reset button back to default
+    // Reset button
     addToCartBtn.textContent = "Add to cart";
     delete addToCartBtn.dataset.mode;
-
     return;
   }
 
@@ -221,6 +333,7 @@ function addToCart() {
     brand: state.selectedBrand,
     model: state.selectedModel,
     condition: state.condition,
+    issues: state.issues,
     price: state.offer,
   });
 
@@ -248,6 +361,8 @@ function renderCart() {
       <div>
         <strong>${item.brand} ${item.model}</strong>
         <p class="muted">${capitalize(item.condition)}</p>
+        ${item.issues && item.issues.length ? 
+          `<small class="muted">Issues: ${item.issues.join(", ")}</small>` : ""}
       </div>
       <div>₹ ${item.price}</div>
     `;
@@ -275,7 +390,6 @@ function setupCheckout() {
   on(qs("#checkoutBtn"), "click", () => {
     modal.classList.remove("hidden");
 
-    // Focus the first input (Full name)
     const firstInput = form.querySelector('input[name="name"]');
     if (firstInput) {
       setTimeout(() => firstInput.focus({ preventScroll: true }), 300);
@@ -288,33 +402,26 @@ function setupCheckout() {
   // Handle form submit
   on(form, "submit", (e) => {
     e.preventDefault();
-
-    // Simple front-end validation
     const fd = new FormData(form);
     if (![...fd.values()].every(v => String(v).trim().length)) {
       alert("Please complete all fields.");
       return;
     }
-
-    // Hide checkout modal & show payment modal
     modal.classList.add("hidden");
     qs("#paymentModal").classList.remove("hidden");
 
-    // Focus first payment option (Cash on Delivery)
     const firstPayment = qs('#paymentModal input[name="payment"]');
     if (firstPayment) {
       setTimeout(() => firstPayment.focus({ preventScroll: true }), 300);
     }
   });
 
-  // Auto jump to next field on Enter
   const inputs = [
     form.querySelector('input[name="name"]'),
     form.querySelector('input[name="phone"]'),
     form.querySelector('textarea[name="address"]'),
     form.querySelector('input[name="date"]')
   ];
-
   inputs.forEach((input, idx) => {
     if (!input) return;
     input.addEventListener("keydown", (e) => {
@@ -324,17 +431,14 @@ function setupCheckout() {
         if (next) {
           next.focus({ preventScroll: true });
         } else {
-          // Last field: trigger form submit
           form.requestSubmit();
         }
       }
     });
   });
 
-  // Auto-submit payment modal on Enter
   const paymentModal = qs("#paymentModal");
   const confirmPaymentBtn = qs("#confirmPaymentBtn");
-
   if (paymentModal && confirmPaymentBtn) {
     paymentModal.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
@@ -345,7 +449,6 @@ function setupCheckout() {
   }
 }
 
-
 function setupPayment() {
   const paymentModal = qs("#paymentModal");
   const closePayment = qs("#closePayment");
@@ -354,37 +457,23 @@ function setupPayment() {
   const closeSuccess = qs("#closeSuccess");
   const goHomeBtn = qs("#goHomeBtn");
 
-  // Close payment modal
   on(closePayment, "click", () => paymentModal.classList.add("hidden"));
-
-  // Confirm payment
   on(confirmPaymentBtn, "click", () => {
     paymentModal.classList.add("hidden");
-
-    // Show success modal instead of alert
     successModal.classList.remove("hidden");
-
-    // Focus the close button for accessibility
     setTimeout(() => closeSuccess.focus({ preventScroll: true }), 300);
-
-    // Clear cart
     cart = [];
     renderCart();
   });
-
-  // Close success modal
   on(closeSuccess, "click", () => {
     successModal.classList.add("hidden");
     document.querySelector(".hero").scrollIntoView({ behavior: "smooth" });
   });
-
-  // Go to Home
   on(goHomeBtn, "click", () => {
     successModal.classList.add("hidden");
     document.querySelector(".hero").scrollIntoView({ behavior: "smooth" });
   });
 }
-
 
 // ==============================
 // Device Detection
@@ -416,14 +505,11 @@ function init() {
   setupPayment();
   detectDevice();
 
-  // Set year
   qs("#year").textContent = new Date().getFullYear().toString();
 
-  // Smooth scroll + focus when clicking "Sell now" or "Get instant quote"
   const sellLinks = document.querySelectorAll('a[href="#sell"], .btn[href="#sell"]');
   const sellSection = qs("#sell");
   const modelSelect = qs("#modelSelect");
-
   sellLinks.forEach((link) => {
     on(link, "click", (e) => {
       e.preventDefault();
@@ -431,15 +517,13 @@ function init() {
       setTimeout(() => {
         if (modelSelect) {
           modelSelect.focus({ preventScroll: true });
-          modelSelect.click(); // auto-open dropdown
+          modelSelect.click();
         }
       }, 600);
     });
   });
 
-  // Hook Add to Cart button
   on(qs("#addToCartBtn"), "click", addToCart);
 }
 
 document.addEventListener("DOMContentLoaded", init);
-
