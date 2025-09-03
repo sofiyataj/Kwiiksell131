@@ -445,28 +445,39 @@ function setupCheckout() {
   }
 }
 
-function setupPayment() {
-  const paymentModal = qs("#paymentModal");
+const paymentModal = qs("#paymentModal");
   const closePayment = qs("#closePayment");
   const confirmPaymentBtn = qs("#confirmPaymentBtn");
   const successModal = qs("#successModal");
   const closeSuccess = qs("#closeSuccess");
   const goHomeBtn = qs("#goHomeBtn");
+  const cartDrawer = qs("#cartDrawer"); // ✅ reference cart drawer
 
+  // Close payment modal
   on(closePayment, "click", () => paymentModal.classList.add("hidden"));
+
+  // Confirm payment
   on(confirmPaymentBtn, "click", () => {
     paymentModal.classList.add("hidden");
     successModal.classList.remove("hidden");
-    setTimeout(() => closeSuccess.focus({ preventScroll: true }), 300);
+
+    // ✅ Clear cart + close cart drawer
     cart = [];
     renderCart();
+    cartDrawer.classList.remove("open");
   });
+
+  // Close success modal
   on(closeSuccess, "click", () => {
     successModal.classList.add("hidden");
+    cartDrawer.classList.remove("open"); // ✅ make sure cart is closed
     document.querySelector(".hero").scrollIntoView({ behavior: "smooth" });
   });
+
+  // Go to Home
   on(goHomeBtn, "click", () => {
     successModal.classList.add("hidden");
+    cartDrawer.classList.remove("open"); // ✅ make sure cart is closed
     document.querySelector(".hero").scrollIntoView({ behavior: "smooth" });
   });
 }
