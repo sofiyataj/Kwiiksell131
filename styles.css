@@ -208,3 +208,98 @@ input:focus, select:focus, textarea:focus { border-color: var(--ring); box-shado
   .grid2 { grid-template-columns: 1fr; }
   .cart-drawer { width: 90vw; }
 }
+/* ============================= */
+/* Diagnostic Checklist Styling  */
+/* ============================= */
+
+.diagnostic-checklist {
+  display: grid;
+  gap: 22px;
+  padding: 14px 0;
+}
+
+/* Diagnostic checklist layout */
+.checklist-section {
+  display: grid;
+  grid-template-columns: 1fr; /* default single column */
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.checklist-section.large {
+  grid-template-columns: 1fr 1fr; /* ✅ two-column layout */
+}
+
+.checklist-section h4 {
+  grid-column: 1 / -1; /* ✅ span both columns */
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.checklist-section label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.checklist-section label:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.checklist-section input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 18px;
+}
+.phone-card {
+  position: relative;
+  width: 260px;
+  height: 520px;
+  border-radius: 36px;
+  background: radial-gradient(120% 120% at 0% 0%, rgba(110, 231, 183, .25), transparent 60%),
+              linear-gradient(180deg, #0f1b40, #0c1636);
+  border: 1px solid rgba(255, 255, 255, .08);
+  box-shadow: var(--shadow);
+}
+.notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 24px;
+  background: #0b1020;
+  border-radius: 0 0 20px 20px;
+}
+.screen-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, rgba(255, 255, 255, .14), transparent 30%);
+  border-radius: 36px;
+}
+.stars {
+  position: absolute;
+  inset: -20px;
+  background-image: radial-gradient(rgba(255, 255, 255, .6) 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: .25;
+  border-radius: 36px;
+  animation: drift 30s linear infinite;
+}
+.tilt {
+  transform: rotate(-6deg) translateY(10px);
+}
+@keyframes drift {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 400px; }
+}
