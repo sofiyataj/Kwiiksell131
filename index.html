@@ -1,235 +1,196 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>KwikSell — Sell Your Old Phone for Instant Offer & Free Pickup</title>
-  <meta name="description" content="Sell your used phone in minutes. Instant quote, free doorstep pickup, and fast payouts across India. No haggling, zero stress — KwikSell." />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-
-  <!-- Canonical (update to your real domain) -->
-  <link rel="canonical" href="https://www.kwiksell.example/" />
-
-  <!-- Favicons -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#0b1020" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.kwiksell.example/" />
-  <meta property="og:title" content="KwikSell — Sell Your Old Phone for Instant Offer" />
-  <meta property="og:description" content="Get an instant quote, free pickup, and fast payouts. Sell your phone with KwikSell." />
-  <meta property="og:image" content="https://www.kwiksell.example/og-image.jpg" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="KwikSell — Sell Your Old Phone for Instant Offer" />
-  <meta name="twitter:description" content="Get an instant quote, free pickup, and fast payouts. Sell your phone with KwikSell." />
-  <meta name="twitter:image" content="https://www.kwiksell.example/og-image.jpg" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "name": "KwikSell",
-        "url": "https://www.kwiksell.example/",
-        "logo": "https://www.kwiksell.example/logo.png",
-        "sameAs": []
-      },
-      {
-        "@type": "WebSite",
-        "name": "KwikSell",
-        "url": "https://www.kwiksell.example/",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.kwiksell.example/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "ItemList",
-        "name": "Popular phone brands",
-        "itemListOrder": "ItemListOrderAscending",
-        "itemListElement": [
-          { "@type": "Brand", "name": "Apple" },
-          { "@type": "Brand", "name": "Samsung" },
-          { "@type": "Brand", "name": "OnePlus" },
-          { "@type": "Brand", "name": "Motorola" },
-          { "@type": "Brand", "name": "Oppo" },
-          { "@type": "Brand", "name": "Vivo" }
-        ]
-      }
-    ]
-  }
-  </script>
 </head>
-
 <body>
-  <a class="skip-link" href="#sell">Skip to selling wizard</a>
-
   <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="/" aria-label="KwikSell Home">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
-          <path d="M12 2a4 4 0 0 1 4 4v2h2a4 4 0 0 1 0 8h-2v2a4 4 0 1 1-8 0v-2H6a4 4 0 0 1 0-8h2V6a4 4 0 0 1 4-4z" />
-        </svg>
-        <span>KwikSell</span>
+        KwikSell
       </a>
-
       <nav class="nav" aria-label="Primary">
         <a href="#how-it-works">How it works</a>
         <a href="#brands">Brands</a>
         <a href="#sell">Sell now</a>
-        <button id="cartBtn" class="btn btn-ghost" aria-haspopup="dialog" aria-controls="cartDrawer">
-          <span class="badge" id="cartCount" aria-live="polite" aria-atomic="true">0</span>
-          Cart
+        <button id="cartBtn" class="btn btn-ghost">
+          <span class="badge" id="cartCount">0</span> Cart
         </button>
       </nav>
     </div>
   </header>
 
-  <main id="main" tabindex="-1">
+  <main>
     <!-- HERO -->
-    <section class="hero" aria-labelledby="heroTitle">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1 id="heroTitle">Sell your old phone in minutes</h1>
-          <p>Get an instant quote, free doorstep pickup, and fast payouts. No haggling, zero stress.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#sell">Get instant quote</a>
-            <button class="btn btn-ghost" id="detectDeviceBtn" type="button">Detect my device</button>
-          </div>
-          <div id="detectResult" class="detect-result" aria-live="polite"></div>
-        </div>
+    <section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <h1> Buy & Sell your Old Phone in Minutes</h1>
 
-        <div class="hero-art" aria-hidden="true">
-          <div class="phone-card tilt">
-            <div class="notch"></div>
-            <div class="screen-shine"></div>
-            <div class="stars"></div>
-          </div>
-        </div>
+    
+      <p>Get an instant quote, free doorstep pickup, and fast payouts. No haggling, zero stress.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#sell">Get instant quote</a>
+       
+    </div>
+
+    <!-- 🔥 Phone background effect -->
+    <div class="hero-art" aria-hidden="true">
+      <div class="phone-card tilt">
+        <div class="notch"></div>
+        <div class="screen-shine"></div>
+        <div class="stars"></div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
     <!-- HOW IT WORKS -->
-    <section id="how-it-works" class="how-it-works section" aria-labelledby="howTitle">
+    <section id="how-it-works" class="section">
       <div class="container">
-        <h2 id="howTitle">How it works</h2>
+        <h2>Home</h2>
         <div class="grid3">
-          <article class="card step" aria-label="Step 1">
-            <div class="step-num" aria-hidden="true">1</div>
-            <h3>Choose model</h3>
-            <p>Pick your brand and model or let us auto-detect it.</p>
-          </article>
-          <article class="card step" aria-label="Step 2">
-            <div class="step-num" aria-hidden="true">2</div>
-            <h3>Answer a few checks</h3>
-            <p>Tell us the condition. We’ll calculate the best price instantly.</p>
-          </article>
-          <article class="card step" aria-label="Step 3">
-            <div class="step-num" aria-hidden="true">3</div>
-            <h3>Pickup &amp; payout</h3>
-            <p>We schedule a free pickup and pay you on the spot.</p>
-          </article>
+          <article class="card step"><div class="step-num">1</div><h3>Choose model</h3></article>
+          <article class="card step"><div class="step-num">2</div><h3>Answer a few checks</h3></article>
+          <article class="card step"><div class="step-num">3</div><h3>Pickup & payout</h3></article>
         </div>
       </div>
     </section>
 
     <!-- BRANDS -->
-    <section id="brands" class="section brands" aria-labelledby="brandsTitle">
+    <section id="brands" class="section">
       <div class="container">
-        <h2 id="brandsTitle">Popular brands</h2>
-        <div id="brandList" class="brand-list" role="list"></div>
+        <h2>Popular brands</h2>
+        <div id="brandList" class="brand-list"></div>
       </div>
     </section>
 
     <!-- SELL WIZARD -->
-    <section id="sell" class="section sell" aria-labelledby="sellTitle">
+    <section id="sell" class="section">
       <div class="container">
-        <h2 id="sellTitle">Get your instant offer</h2>
+        <h2>Get your instant offer</h2>
+        <div class="wizard card">
 
-        <div class="wizard card" role="region" aria-label="Sell wizard">
-          <!-- Step 1: Brand & Model -->
+          <!-- Step 1 -->
           <div class="wizard-step" data-step="1">
             <div class="grid2">
               <div>
                 <label for="brandSelect">Brand</label>
-                <select id="brandSelect" name="brand" autocomplete="organization"></select>
+                <select id="brandSelect" name="brand"></select>
               </div>
               <div>
                 <label for="modelSelect">Model</label>
                 <select id="modelSelect" name="model"></select>
               </div>
             </div>
-
             <div class="mt-3">
               <label for="searchInput">Search models</label>
-              <input id="searchInput" type="search" placeholder="e.g., iPhone 12, Galaxy S21" inputmode="search" />
+              <input id="searchInput" type="search" placeholder="e.g., iPhone 12, Galaxy S21" />
             </div>
-
-            <div id="modelCards" class="model-cards mt-3" role="list"></div>
-
+            <div id="modelCards" class="model-cards mt-3"></div>
             <div class="wizard-actions">
               <button class="btn btn-primary" id="toStep2" type="button">Next</button>
             </div>
           </div>
 
-          <!-- Step 2: Condition -->
+          <!-- Step 2 -->
           <div class="wizard-step hidden" data-step="2">
             <h3>Condition</h3>
-            <div class="grid3" role="radiogroup" aria-label="Condition">
-              <label class="radio-card">
-                <input type="radio" name="condition" value="excellent" checked />
-                <div>
-                  <strong>Excellent</strong>
-                  <p>Like new, no visible wear</p>
-                </div>
-              </label>
-              <label class="radio-card">
-                <input type="radio" name="condition" value="good" />
-                <div>
-                  <strong>Good</strong>
-                  <p>Light scratches, fully functional</p>
-                </div>
-              </label>
-              <label class="radio-card">
-                <input type="radio" name="condition" value="fair" />
-                <div>
-                  <strong>Fair</strong>
-                  <p>Heavy wear or minor faults</p>
-                </div>
-              </label>
+            <div class="grid3">
+              <label class="radio-card"><input type="radio" name="condition" value="excellent" checked /> Excellent</label>
+              <label class="radio-card"><input type="radio" name="condition" value="good" /> Good</label>
+              <label class="radio-card"><input type="radio" name="condition" value="fair" /> Fair</label>
             </div>
 
-            <details class="mt-3">
-              <summary>Add issues (optional)</summary>
-              <div class="checkboxes">
-                <label><input type="checkbox" value="screenCrack" /> Screen cracked</label>
-                <label><input type="checkbox" value="batteryPoor" /> Battery health under 80%</label>
-                <label><input type="checkbox" value="cameraFault" /> Camera not working</label>
-                <label><input type="checkbox" value="waterDamage" /> Water damage</label>
-                <label><input type="checkbox" value="powerButtonOk" /> Power button works normally</label>
-                <label><input type="checkbox" value="originalCable" /> Original charging cable (Type-C / Lightning)</label>
-              </div>
-            </details>
+            <!-- Diagnostic Checklist -->
+      <details class="mt-3">
+  <summary>Add Issues</summary>
+  <div class="diagnostic-checklist">
+
+    <!-- Screen -->
+    <div class="checklist-section large">
+      <h4>Screen</h4>
+      <label><input type="checkbox" value="cracks" data-deduction="1500"> Cracks / scratches on screen</label>
+      <label><input type="checkbox" value="touch" data-deduction="1000"> Touch not responsive</label>
+      <label><input type="checkbox" value="clarity" data-deduction="800"> Display clarity issues</label>
+      <label><input type="checkbox" value="brightness" data-deduction="700"> Brightness / color issue</label>
+      <label><input type="checkbox" value="burnin" data-deduction="1200"> Screen burn-in</label>
+    </div>
+
+    <!-- Body -->
+    <div class="checklist-section large">
+      <h4>Body</h4>
+      <label><input type="checkbox" value="dents" data-deduction="800"> Frame dents / bends</label>
+      <label><input type="checkbox" value="scratches" data-deduction="500"> Heavy body scratches</label>
+      <label><input type="checkbox" value="backpanel" data-deduction="1000"> Back panel cracked</label>
+    </div>
+
+    <!-- Buttons / Ports -->
+    <div class="checklist-section large">
+      <h4>Buttons / Ports</h4>
+      <label><input type="checkbox" value="power" data-deduction="800"> Power button faulty</label>
+      <label><input type="checkbox" value="volume" data-deduction="700"> Volume buttons faulty</label>
+      <label><input type="checkbox" value="charging" data-deduction="2000"> Charging port issue</label>
+      <label><input type="checkbox" value="headphone" data-deduction="500"> Headphone jack faulty</label>
+    </div>
+
+    <!-- Audio -->
+    <div class="checklist-section large">
+      <h4>Audio</h4>
+      <label><input type="checkbox" value="loudspeaker" data-deduction="1200"> Loudspeaker faulty</label>
+      <label><input type="checkbox" value="earpiece" data-deduction="1000"> Earpiece faulty</label>
+      <label><input type="checkbox" value="mic" data-deduction="1000"> Mic faulty</label>
+    </div>
+
+    <!-- Camera -->
+    <div class="checklist-section large">
+      <h4>Camera</h4>
+      <label><input type="checkbox" value="focus" data-deduction="1500"> Camera focus issue</label>
+      <label><input type="checkbox" value="lens" data-deduction="1000"> Lens cracked / dusty</label>
+      <label><input type="checkbox" value="flash" data-deduction="700"> Flash not working</label>
+    </div>
+
+    <!-- Battery -->
+    <div class="checklist-section large">
+      <h4>Battery</h4>
+      <label><input type="checkbox" value="batteryhealth" data-deduction="1500"> Poor battery health</label>
+      <label><input type="checkbox" value="noheat" data-deduction="1000"> Overheating</label>
+    </div>
+    <!-- Software -->
+<div class="checklist-section large">
+  <h4>Software & Activation</h4>
+  <label><input type="checkbox" value="locked" data-deduction="2000"> Locked to Apple/Google ID</label>
+  <label><input type="checkbox" value="reset" data-deduction="500"> Factory reset not done</label>
+  <label><input type="checkbox" value="blacklist" data-deduction="3000"> IMEI blacklisted</label>
+</div>
+
+<!-- Accessories -->
+<div class="checklist-section large">
+  <h4>Box & Accessories</h4>
+  <label><input type="checkbox" value="box" data-deduction="500"> Missing original box</label>
+  <label><input type="checkbox" value="charger" data-deduction="800"> Missing charger</label>
+  <label><input type="checkbox" value="cable" data-deduction="500"> Missing charging cable</label>
+  <label><input type="checkbox" value="headphones" data-deduction="400"> Missing headphones</label>
+  <label><input type="checkbox" value="simtool" data-deduction="200"> Missing SIM ejector</label>
+</div>
+
+
+    <!-- Connectivity -->
+    <div class="checklist-section large">
+      <h4>Connectivity</h4>
+      <label><input type="checkbox" value="wifi" data-deduction="1000"> Wi-Fi faulty</label>
+      <label><input type="checkbox" value="bt" data-deduction="1000"> Bluetooth faulty</label>
+      <label><input type="checkbox" value="fingerprint" data-deduction="1200"> Fingerprint / Face ID not working</label>
+    </div>
+
+  </div>
+</details>
+
 
             <div class="wizard-actions">
               <button class="btn btn-ghost" id="backTo1" type="button">Back</button>
@@ -237,129 +198,41 @@
             </div>
           </div>
 
-          <!-- Step 3: Offer -->
-          <div class="wizard-step hidden" data-step="3" aria-live="polite">
+          <!-- Step 3 -->
+          <div class="wizard-step hidden" data-step="3">
             <div id="offerBox" class="offer-box">
-              <div>
-                <h3>Your offer</h3>
-                <p id="offerTitle" class="muted"></p>
-              </div>
-              <div class="offer-amount" aria-label="Offer amount">
-                ₹ <span id="offerAmount">—</span>
-              </div>
+              <h3>Your offer</h3>
+              <p id="offerTitle" class="muted"></p>
+              <div class="offer-amount">₹ <span id="offerAmount">—</span></div>
             </div>
-
             <div class="wizard-actions">
               <button class="btn btn-ghost" id="backTo2" type="button">Back</button>
               <button class="btn btn-primary" id="addToCartBtn" type="button">Add to cart</button>
             </div>
           </div>
+
         </div>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> KwikSell</p>
-      <nav aria-label="Footer">
-        <div class="links">
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="/support">Support</a>
-        </div>
-      </nav>
     </div>
   </footer>
 
   <!-- CART DRAWER -->
-  <aside id="cartDrawer" class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+  <aside id="cartDrawer" class="cart-drawer">
     <div class="cart-header">
-      <strong id="cartTitle">Your Cart</strong>
-      <button id="closeCart" class="icon-btn" aria-label="Close cart">×</button>
+      <strong>Your Cart</strong>
+      <button id="closeCart" class="icon-btn">×</button>
     </div>
     <div id="cartItems" class="cart-items"></div>
     <div class="cart-footer">
-      <div class="cart-total">Total: ₹ <span id="cartTotal">0</span></div>
-      <button id="checkoutBtn" class="btn btn-primary btn-block" type="button">Proceed to pickup</button>
+      <div>Total: ₹ <span id="cartTotal">0</span></div>
+      <button id="checkoutBtn" class="btn btn-primary btn-block">Proceed to pickup</button>
     </div>
   </aside>
-
-  <!-- CHECKOUT MODAL -->
-  <div id="checkoutModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
-    <div class="modal-card" role="document">
-      <div class="modal-header">
-        <h3 id="checkoutTitle">Schedule Pickup</h3>
-        <button class="icon-btn" id="closeModal" aria-label="Close">×</button>
-      </div>
-      <form id="checkoutForm" class="modal-body" novalidate>
-        <label>Full name
-          <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
-        </label>
-        <label>Phone
-          <input type="tel" name="phone" placeholder="+91" autocomplete="tel" required />
-        </label>
-        <label>Address
-          <textarea name="address" rows="3" required></textarea>
-        </label>
-        <label>Pickup date
-          <input type="date" name="date" required />
-        </label>
-        <button class="btn btn-primary btn-block" type="submit">Confirm pickup</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- PAYMENT MODAL -->
-  <div id="paymentModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
-    <div class="modal-card" role="document">
-      <div class="modal-header">
-        <h3 id="paymentTitle">Choose Payment</h3>
-        <button class="icon-btn" id="closePayment" aria-label="Close">×</button>
-      </div>
-      <div class="modal-body">
-        <p>Please choose your payment method:</p>
-
-        <label class="radio-card">
-          <input type="radio" name="payment" value="cod" checked />
-          <strong>Cash on Delivery</strong>
-        </label>
-
-        <label class="radio-card">
-          <input type="radio" name="payment" value="phonepe" />
-          <strong>PhonePe / GPay</strong>
-        </label>
-
-        <div class="wizard-actions mt-3">
-          <button id="confirmPaymentBtn" class="btn btn-primary btn-block" type="button">
-            Confirm Payment
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SUCCESS MODAL -->
-  <div id="successModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="successTitle">
-    <div class="modal-card" role="document">
-      <div class="modal-header">
-        <h3 id="successTitle">🎉 Order Confirmed</h3>
-        <button class="icon-btn" id="closeSuccess" aria-label="Close">×</button>
-      </div>
-      <div class="modal-body">
-        <p>Your pickup has been scheduled successfully.</p>
-        <p>We’ll contact you shortly for confirmation. Thank you for using <strong>KwikSell</strong>!</p>
-        <div class="wizard-actions mt-3">
-          <button id="goHomeBtn" class="btn btn-primary btn-block" type="button">
-            Go to Home
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="app.js" defer></script>
-</body>
-</html>
+ <div id="checkoutModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle"> <div class="modal-card" role="document"> <div class="modal-header"> <h3 id="checkoutTitle">Schedule Pickup</h3> <button class="icon-btn" id="closeModal" aria-label="Close">×</button> </div> <form id="checkoutForm" class="modal-body" novalidate> <label>Full name <input type="text" name="name" placeholder="Your name" autocomplete="name" required /> </label> <label>Phone <input type="tel" name="phone" placeholder="+91" autocomplete="tel" required /> </label> <label>Address <textarea name="address" rows="3" required></textarea> </label> <label>Pickup date <input type="date" name="date" required /> </label> <button class="btn btn-primary btn-block" type="submit">Confirm pickup</button> </form> </div> </div> <!-- PAYMENT MODAL --> <div id="paymentModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="paymentTitle"> <div class="modal-card" role="document"> <div class="modal-header"> <h3 id="paymentTitle">Choose Payment</h3> <button class="icon-btn" id="closePayment" aria-label="Close">×</button> </div> <div class="modal-body"> <p>Please choose your payment method:</p> <label class="radio-card"> <input type="radio" name="payment" value="cod" checked /> <strong>Cash on Delivery</strong> </label> <label class="radio-card"> <input type="radio" name="payment" value="phonepe" /> <strong>PhonePe / GPay</strong> </label> <div class="wizard-actions mt-3"> <button id="confirmPaymentBtn" class="btn btn-primary btn-block" type="button"> Confirm Payment </button> </div> </div> </div> </div> <!-- SUCCESS MODAL --> <div id="successModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="successTitle"> <div class="modal-card" role="document"> <div class="modal-header"> <h3 id="successTitle">🎉 Order Confirmed</h3> <button class="icon-btn" id="closeSuccess" aria-label="Close">×</button> </div> <div class="modal-body"> <p>Your pickup has been scheduled successfully.</p> <p>We’ll contact you shortly for confirmation. Thank you for using <strong>KwikSell</strong>!</p> <div class="wizard-actions mt-3"> <button id="goHomeBtn" class="btn btn-primary btn-block" type="button"> Go to Home </button> </div> </div> </div> </div> <!-- Scripts --> <script src="app.js" defer></script> </body> </html>
