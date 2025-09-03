@@ -1,14 +1,10 @@
-// ==============================
-// Helpers
-// ==============================
+
 const qs = (sel) => document.querySelector(sel);
 const qsa = (sel) => document.querySelectorAll(sel);
 const on = (el, evt, cb) => el && el.addEventListener(evt, cb);
 const capitalize = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
 
-// ==============================
-// State
-// ==============================
+
 let state = {
   selectedBrand: null,
   selectedModel: null,
